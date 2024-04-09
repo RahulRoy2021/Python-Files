@@ -30,9 +30,7 @@ def update():
 
     # Check if both user_id and new_username are present
     if user_id and new_username:
-        # Update the username in the database
         collection.update_one({"_id": ObjectId(user_id)}, {"$set": {"username": new_username}})
-        # Redirect to the index page to fetch and display the updated data
         return redirect('/')
     else:
         return "Error: User ID or new username missing."
